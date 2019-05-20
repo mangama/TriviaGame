@@ -63,7 +63,7 @@ var questionsArray = [
 
 $("#start").on("click", function () {
 
-
+    
     for (var i = 0; i < questionsArray.length; i++) {
         var answers = questionsArray[i].answers;
         var question = questionsArray[i].question;
@@ -90,7 +90,7 @@ $("#start").on("click", function () {
 
         $("#page").append(questionContainer);
 
-    }
+    } 
 
     $("#time-left").text(timerCount);
 
@@ -98,12 +98,14 @@ $("#start").on("click", function () {
 
         timerCount--;
         // update timer display
-        $("#time-left").text(timerCount);
+        $("#time-left").text("Timer: "+ timerCount);
         if (timerCount === 0) {
             // display results 
             results();
-        }
+            
 
+        }
+        
     }, 1000);
 
 
