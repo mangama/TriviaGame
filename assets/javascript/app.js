@@ -61,9 +61,15 @@ var questionsArray = [
 
 //answersKeys = ["a", "b", "c", "d"]
 
+$(document).ready(function ()   {
+    $("#submit").hide();
+})
+
+
 $("#start").on("click", function () {
 
-    
+    $("#submit").show();
+    $("#page").empty();
     for (var i = 0; i < questionsArray.length; i++) {
         var answers = questionsArray[i].answers;
         var question = questionsArray[i].question;
@@ -78,7 +84,7 @@ $("#start").on("click", function () {
         for (var j = 0; j < answersKeys.length; j++) {
             //Allowing only one selection per question for a given set of answers
             var answerLetter = answersKeys[j];
-            var radioBtn = $('<input type="radio" name="' + radioGroup + '" value="' + answerLetter + '" />');
+            var radioBtn = $('<input type="radio" name="<br> ' + radioGroup + '" value="' + answerLetter + '" /     >');
 
             radioBtn.appendTo(questionContainer);
 
@@ -112,7 +118,10 @@ $("#start").on("click", function () {
 });
 
 
-function results() {
+
+
+function results(event) {
+    // event.preventDefault();
     clearInterval(timer);
     
     for (var i = 0; i < questionsArray.length; i++) {
@@ -132,9 +141,10 @@ function results() {
     }
 
     $("#resultId").show();
-    $("#unanswered-question").append(unansweredCount);
-    $("#correct-answer").append(correctAnswersCount);
-    $("#incorrect-answer").append(incorrectAnswersCount);
+    $("#unanswered-question").html(unansweredCount);
+    $("#correct-answer").html(correctAnswersCount);
+    $("#incorrect-answer").html(incorrectAnswersCount);
+   
     
 }
 
@@ -147,5 +157,6 @@ $("#submit").on("click", function () {
 var fullReset = document.getElementById('fullReset');
 
     fullReset.addEventListener('click', function(e) {
+        
       location.reload();
     }, false);
