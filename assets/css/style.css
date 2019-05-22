@@ -17,9 +17,7 @@ body {
  display: none;
 } 
 
-/* button.#submit  {
-  display: visible;
-}  */
+
 
 
 .container {
@@ -35,6 +33,7 @@ body {
 #submit {
   background:  greenyellow;
   font-size: 28px; 
+  margin-top:30px;
 }
 
 #start  {

@@ -141,9 +141,9 @@ function results(event) {
     }
 
     $("#resultId").show();
-    $("#unanswered-question").html(unansweredCount);
-    $("#correct-answer").html(correctAnswersCount);
-    $("#incorrect-answer").html(incorrectAnswersCount);
+    $("#unanswered-question").html("Unanswered Question(s): "+unansweredCount);
+    $("#correct-answer").html("Correct Answer(s): "+correctAnswersCount);
+    $("#incorrect-answer").html("Incorrect Answer(s): "+incorrectAnswersCount);
     $("#submit").attr("disabled", true);
     
 }
