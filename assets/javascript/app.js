@@ -144,7 +144,7 @@ function results(event) {
     $("#unanswered-question").html(unansweredCount);
     $("#correct-answer").html(correctAnswersCount);
     $("#incorrect-answer").html(incorrectAnswersCount);
-   
+    $("#submit").attr("disabled", true);
     
 }
 
