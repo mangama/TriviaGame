@@ -145,12 +145,13 @@ function results(event) {
     $("#correct-answer").html("Correct Answer(s): "+correctAnswersCount);
     $("#incorrect-answer").html("Incorrect Answer(s): "+incorrectAnswersCount);
     $("#submit").attr("disabled", true);
-    
+    $("#page").hide();
 }
 
 
 $("#submit").on("click", function () {
     results();
+
 
 });
 
