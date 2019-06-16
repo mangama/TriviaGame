@@ -76,16 +76,14 @@ $("#start").on("click", function () {
         var answersKeys = Object.keys(answers);
         var radioGroup = "rbtnCount" + i; // Grouping the set of 4 answers per question
 
-
-
         var questionContainer = $("<div>");
 
-        questionContainer.append($("<h3>").text(question));
+        questionContainer.append($("<h3 class='h3class'>").text(question));
         for (var j = 0; j < answersKeys.length; j++) {
             //Allowing only one selection per question for a given set of answers
             var answerLetter = answersKeys[j];
-            var radioBtn = $('<input type="radio" name="<br> ' + radioGroup + '" value="' + answerLetter + '" /     >');
-
+            var radioBtn = $('<input type="radio" name= "' + radioGroup + '" value= "' + answerLetter + '" />');
+            
             radioBtn.appendTo(questionContainer);
 
             var answerText = answers[answerLetter];
@@ -93,9 +91,7 @@ $("#start").on("click", function () {
             questionContainer.append($("<label>").text(answerSentence));
             // console.log(answerSentence);
         }
-
         $("#page").append(questionContainer);
-
     } 
 
     $("#time-left").text(timerCount);
@@ -107,16 +103,13 @@ $("#start").on("click", function () {
         $("#time-left").text("Timer: "+ timerCount);
         if (timerCount === 0) {
             // display results 
-            results();
-            
+            results();         
 
         }
         
     }, 1000);
 
-
 });
-
 
 
 
@@ -126,32 +119,37 @@ function results(event) {
     
     for (var i = 0; i < questionsArray.length; i++) {
         var selectedOption = $('input:radio[name=rbtnCount' + i + ']:checked').val();
+        console.log(selectedOption);
 
         if (selectedOption === undefined) {
             unansweredCount++;
-            
+            console.log(selectedOption);
 
         } else if (selectedOption === questionsArray[i].correctAnswer) {
             correctAnswersCount++;
+            console.log(selectedOption);
 
         } else {
             incorrectAnswersCount++;
+            console.log(selectedOption);
         }
-
     }
 
     $("#resultId").show();
     $("#unanswered-question").html("Unanswered Question(s): "+unansweredCount);
+    console.log(unansweredCount);
     $("#correct-answer").html("Correct Answer(s): "+correctAnswersCount);
+    console.log(correctAnswersCount);
     $("#incorrect-answer").html("Incorrect Answer(s): "+incorrectAnswersCount);
+    console.log(incorrectAnswersCount);
     $("#submit").attr("disabled", true);
     $("#page").hide();
 }
 
 
 $("#submit").on("click", function () {
-    results();
 
+    results();
 
 });
 
@@ -161,3 +159,4 @@ var fullReset = document.getElementById('fullReset');
         
       location.reload();
     }, false);
+   
